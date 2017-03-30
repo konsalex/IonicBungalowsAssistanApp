@@ -1,0 +1,21 @@
+
+
+<ion-header>
+<ion-title style="text-align: center; max-height:40px;  "><img src="http://webco.gr/app/wp-content/uploads/2017/03/logo.png" /></ion-title>
+  <ion-navbar>
+    <ion-title style="text-align:center" >Hot</ion-title>
+	
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="hot">
+  <ion-list>
+    <button ion-item *ngFor="let item of items" (click)="itemTapped($event, item)">
+    <h2 [innerHTML]="item.title.rendered"></h2>
+    <p [innerHTML]="item.excerpt.rendered"></p>
+    </button>
+  </ion-list>
+  <ion-infinite-scroll (ionInfinite)="loadMore($event)">
+ <ion-infinite-scroll-content></ion-infinite-scroll-content>
+</ion-infinite-scroll>
+</ion-content>
